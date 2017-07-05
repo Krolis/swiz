@@ -1,14 +1,14 @@
 package com.yeabhunny.swizService.reviewer;
 
-import com.yeabhunny.swizService.reviewer.dto.response.ReviewerListResponse;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import com.yeabhunny.swizService.reviewer.dto.response.ReviewerListResponse;
 
 @Controller
 @RequestMapping("/reviewer")
@@ -23,7 +23,7 @@ public class ReviewerController {
         ReviewerListResponse rec4 = new ReviewerListResponse(4L, "Damian", "Kowalski", 7);
         ReviewerListResponse rec5 = new ReviewerListResponse(5L, "Emil", "Kowalski", 2);
         ReviewerListResponse rec6 = new ReviewerListResponse(6L, "Franciszek", "Kowalski", 1);
-        ReviewerListResponse rec7 = new ReviewerListResponse(7L, "Dominik", "Króliczek", 9);
+        ReviewerListResponse rec7 = new ReviewerListResponse(7L, "Dominik", "Króliczek", 3);
         List<ReviewerListResponse> recs = Arrays.asList(rec1, rec2, rec3, rec4, rec5, rec6, rec7);
         return recs;
     }

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yeabhunny.swizService.reviewer.dto.response.ReviewerListResponse;
 import com.yeabhunny.swizService.task.dto.response.PrometerResponse;
 import com.yeabhunny.swizService.task.dto.response.TaskResponse;
 
@@ -27,16 +28,26 @@ public class StudentTaskController {
 			taskResponse.setId(2L);
 			taskResponse.setTitle("Druga praca inżynierska");
 			taskResponse.setStatus(TaskStatus.WAITING_FOR_PROMOTOR_REC_CONFIRM);
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(1L, "Adam", "Kowalski", 3));
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(5L, "Emil", "Kowalski", 2));
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(6L, "Franciszek", "Kowalski", 1));
 			break;
 		case "13":
 			taskResponse.setId(3L);
 			taskResponse.setTitle("Trzecia praca inżynierska");
 			taskResponse.setStatus(TaskStatus.WAITING_FOR_STUDENT_REC_CONFIRM);
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(1L, "Adam", "Kowalski", 3));
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(3L, "Cezary", "Kowalski", 5));
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(6L, "Franciszek", "Kowalski", 1));
+
 			break;
 		case "14":
 			taskResponse.setId(4L);
 			taskResponse.setTitle("Czwarta praca inżynierska");
 			taskResponse.setStatus(TaskStatus.REC_CONFIRMED);
+			taskResponse.getReviewerList().add(new ReviewerListResponse(4L, "Damian", "Kowalski", 7));
+			taskResponse.getReviewerList().add(new ReviewerListResponse(5L, "Emil", "Kowalski", 2));
+			taskResponse.getReviewerList().add(new ReviewerListResponse(2L, "Bartosz", "Kowalski", 6));
 			break;
 		}
         taskResponse.setPrometer(getDefaultPromotor());
