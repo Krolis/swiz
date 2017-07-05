@@ -2,6 +2,10 @@ package com.yeabhunny.swizService.session;
 
 import com.yeabhunny.swizService.session.dto.request.LoginRequest;
 import com.yeabhunny.swizService.session.dto.response.LoginResponse;
+import com.yeabhunny.swizService.session.exception.ForbiddenException;
+import com.yeabhunny.swizService.session.model.Session;
+import com.yeabhunny.swizService.session.service.SessionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,26 +18,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/session")
 public class SessionController {
 
+    @Autowired
+    SessionService sessionService;
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public LoginResponse login(@RequestParam LoginRequest loginRequest){
-        LoginResponse response = new LoginResponse();
 
+        Session session = sessionService.login(loginRequest.getLogin(), loginRequest.getPassword());
 
-        switch (loginRequest.getLogin()){
-            case "promotor":
-                response.setRole(AppRole.PROMOTOR);
-                break;
-            case "task":
-                response.setRole(AppRole.STUDENT);
-                break;
-            case "reviewer":
-                response.setRole(AppRole.REVIEWER);
-                break;
-            default:
-                throw new RuntimeException();
-        }
-        response.setToken(loginRequest.getLogin());
+        LoginResponse response = new LoginResponse(session.getToken(), session.getRole());
+
         return response;
     }
 
