@@ -5,5 +5,5 @@ package com.yeabhunny.swizService.session;
  */
 public enum AppRole {
     STUDENT,
-    PROMOTOR
+    REVIEWER, PROMOTOR
 }

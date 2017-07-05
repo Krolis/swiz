@@ -4,6 +4,22 @@ import com.yeabhunny.swizService.session.AppRole;
 
 public class LoginResponse {
 
-    public String token;
-    public AppRole role;
+    private String token;
+    private AppRole role;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public AppRole getRole() {
+        return role;
+    }
+
+    public void setRole(AppRole role) {
+        this.role = role;
+    }
 }
