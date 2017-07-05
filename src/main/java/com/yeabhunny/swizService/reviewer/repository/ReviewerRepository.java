@@ -1,5 +1,6 @@
 package com.yeabhunny.swizService.reviewer.repository;
 
+import com.yeabhunny.swizService.reviewer.dto.response.ReviewerListResponse;
 import com.yeabhunny.swizService.reviewer.entity.Reviewer;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,7 @@ public class ReviewerRepository {
         Reviewer rec4 = new Reviewer(4L, "Damian", "Kowalski", 7);
         Reviewer rec5 = new Reviewer(5L, "Emil", "Kowalski", 2);
         Reviewer rec6 = new Reviewer(6L, "Franciszek", "Kowalski", 1);
-        Reviewer rec7 = new Reviewer(7L, "Dominik", "Króliczek", 9);
+        Reviewer rec7 = new Reviewer(7L, "Dominik", "Króliczek", 3);
         db = Arrays.asList(rec1, rec2, rec3, rec4, rec5, rec6, rec7);
     }
 
