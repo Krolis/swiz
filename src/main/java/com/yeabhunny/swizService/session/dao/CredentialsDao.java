@@ -1,13 +1,10 @@
 package com.yeabhunny.swizService.session.dao;
 
 import com.yeabhunny.swizService.session.AppRole;
-import com.yeabhunny.swizService.session.exception.ForbiddenException;
 import com.yeabhunny.swizService.session.model.Credentials;
 import org.springframework.stereotype.Component;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 @Component

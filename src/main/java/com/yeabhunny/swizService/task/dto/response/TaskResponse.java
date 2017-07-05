@@ -1,9 +1,12 @@
 package com.yeabhunny.swizService.task.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.yeabhunny.swizService.reviewer.dto.response.ReviewerListResponse;
 import com.yeabhunny.swizService.task.TaskStatus;
 
-public class StudentTaskResponse {
+import java.util.List;
+
+public class TaskResponse {
     @JsonProperty("idPracy")
     private long id;
     @JsonProperty("tytulPracy")
@@ -12,7 +15,12 @@ public class StudentTaskResponse {
     private TaskStatus status;
     @JsonProperty("promotor")
     private PrometerResponse prometer;
+    @JsonProperty("student")
     private StudentResponse student;
+    @JsonProperty("listaRecenzentow")
+    private List<ReviewerListResponse> reviewerList;
+    @JsonProperty("listaProponowanychRecenzentow")
+    private List<ReviewerListResponse> proposedReviewerList;
 
     public void setId(long id) {
         this.id = id;
@@ -52,5 +60,21 @@ public class StudentTaskResponse {
 
     public StudentResponse getStudent() {
         return student;
+    }
+
+    public List<ReviewerListResponse> getReviewerList() {
+        return reviewerList;
+    }
+
+    public void setReviewerList(List<ReviewerListResponse> reviewerList) {
+        this.reviewerList = reviewerList;
+    }
+
+    public List<ReviewerListResponse> getProposedReviewerList() {
+        return proposedReviewerList;
+    }
+
+    public void setProposedReviewerList(List<ReviewerListResponse> proposedReviewerList) {
+        this.proposedReviewerList = proposedReviewerList;
     }
 }
