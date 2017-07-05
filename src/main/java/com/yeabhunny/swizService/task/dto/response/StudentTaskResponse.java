@@ -12,6 +12,7 @@ public class StudentTaskResponse {
     private TaskStatus status;
     @JsonProperty("promotor")
     private PrometerResponse prometer;
+    private StudentResponse student;
 
     public void setId(long id) {
         this.id = id;
@@ -43,5 +44,13 @@ public class StudentTaskResponse {
 
     public PrometerResponse getPrometer() {
         return prometer;
+    }
+
+    public void setStudent(StudentResponse student) {
+        this.student = student;
+    }
+
+    public StudentResponse getStudent() {
+        return student;
     }
 }
