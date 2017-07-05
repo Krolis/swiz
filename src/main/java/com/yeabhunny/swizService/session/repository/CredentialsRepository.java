@@ -1,18 +1,18 @@
-package com.yeabhunny.swizService.session.dao;
+package com.yeabhunny.swizService.session.repository;
 
 import com.yeabhunny.swizService.session.AppRole;
-import com.yeabhunny.swizService.session.model.Credentials;
+import com.yeabhunny.swizService.session.entity.Credentials;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class CredentialsDao {
+public class CredentialsRepository {
 
     private List<Credentials> db;
 
-    public CredentialsDao() {
+    public CredentialsRepository() {
 
         Credentials c1 = new Credentials(1L,"promotor","test", AppRole.PROMOTOR);
         Credentials c2 = new Credentials(11L,"student1","test", AppRole.STUDENT);

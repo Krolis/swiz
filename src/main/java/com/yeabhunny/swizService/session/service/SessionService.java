@@ -1,10 +1,9 @@
 package com.yeabhunny.swizService.session.service;
 
-import com.yeabhunny.swizService.session.AppRole;
-import com.yeabhunny.swizService.session.dao.CredentialsDao;
+import com.yeabhunny.swizService.session.repository.CredentialsRepository;
 import com.yeabhunny.swizService.session.exception.ForbiddenException;
-import com.yeabhunny.swizService.session.model.Credentials;
-import com.yeabhunny.swizService.session.model.Session;
+import com.yeabhunny.swizService.session.entity.Credentials;
+import com.yeabhunny.swizService.session.entity.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +11,11 @@ import org.springframework.stereotype.Service;
 public class SessionService {
 
     @Autowired
-    private CredentialsDao credentialsDao;
+    private CredentialsRepository credentialsRepository;
 
     public Session login(String login, String password) {
 
-        Credentials credentials = credentialsDao.getByLogin(login);
+        Credentials credentials = credentialsRepository.getByLogin(login);
 
         if(credentials != null && credentials.getPassword().equals(password)){
             Session response = new Session();

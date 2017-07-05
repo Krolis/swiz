@@ -1,4 +1,4 @@
-package com.yeabhunny.swizService.session.model;
+package com.yeabhunny.swizService.session.entity;
 
 import com.yeabhunny.swizService.session.AppRole;
 
