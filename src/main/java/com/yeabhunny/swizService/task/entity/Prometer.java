@@ -1,8 +1,18 @@
 package com.yeabhunny.swizService.task.entity;
 
 public class Prometer {
+    private long id;
     private String name;
     private String surname;
+
+    public Prometer() {
+    }
+
+    public Prometer(long id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
 
     public String getName() {
         return name;
@@ -27,7 +37,5 @@ public class Prometer {
     public void setId(long id) {
         this.id = id;
     }
-
-    private long id;
 
 }

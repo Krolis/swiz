@@ -1,6 +1,8 @@
 package com.yeabhunny.swizService.task;
 
 import com.yeabhunny.swizService.reviewer.ReviewerController;
+import com.yeabhunny.swizService.task.dto.transform.PrometerTransform;
+import com.yeabhunny.swizService.task.entity.Prometer;
 import com.yeabhunny.swizService.task.repository.PrometerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,9 +22,6 @@ import com.yeabhunny.swizService.task.dto.response.TaskResponse;
 public class StudentTaskController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(StudentTaskController.class);
-
-	@Autowired
-	private PrometerRepository prometerRepository;
 
     @RequestMapping(value = "/{studentId}/task", method = RequestMethod.GET)
     @ResponseBody
@@ -63,8 +62,13 @@ public class StudentTaskController {
 			taskResponse.getReviewerList().add(new ReviewerListResponse(2L, "Bartosz", "Kowalski", 6));
 			break;
 		}
-        taskResponse.setPrometer(prometerRepository.getDefaultPrometer());
+        taskResponse.setPrometer(PrometerTransform.toResponse(getDefaultPrometer()));
         return taskResponse;
     }
+
+	public Prometer getDefaultPrometer() {
+		Prometer promotor = new Prometer(1L, "Jan", "Kowalski");
+		return promotor;
+	}
 
 }
