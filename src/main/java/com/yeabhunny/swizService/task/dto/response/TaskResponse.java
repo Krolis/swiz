@@ -1,10 +1,11 @@
 package com.yeabhunny.swizService.task.dto.response;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yeabhunny.swizService.reviewer.dto.response.ReviewerListResponse;
 import com.yeabhunny.swizService.task.TaskStatus;
-
-import java.util.List;
 
 public class TaskResponse {
     @JsonProperty("idPracy")
@@ -21,6 +22,11 @@ public class TaskResponse {
     private List<ReviewerListResponse> reviewerList;
     @JsonProperty("listaProponowanychRecenzentow")
     private List<ReviewerListResponse> proposedReviewerList;
+    
+    public TaskResponse() {
+    	this.reviewerList = new ArrayList<>();
+    	this.proposedReviewerList = new ArrayList<>();
+    }
 
     public void setId(long id) {
         this.id = id;

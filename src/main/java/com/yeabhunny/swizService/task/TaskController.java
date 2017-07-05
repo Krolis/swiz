@@ -1,5 +1,6 @@
 package com.yeabhunny.swizService.task;
 
+import com.yeabhunny.swizService.reviewer.dto.response.ReviewerListResponse;
 import com.yeabhunny.swizService.task.dto.response.PrometerResponse;
 import com.yeabhunny.swizService.task.dto.response.StudentResponse;
 import com.yeabhunny.swizService.task.dto.response.TaskResponse;
@@ -31,18 +32,27 @@ public class TaskController {
 			taskResponse.setId(2L);
 			taskResponse.setTitle("Druga praca inżynierska");
 			taskResponse.setStatus(TaskStatus.WAITING_FOR_PROMOTOR_REC_CONFIRM);
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(1L, "Adam", "Kowalski", 3));
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(5L, "Emil", "Kowalski", 2));
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(6L, "Franciszek", "Kowalski", 1));
 			break;
 		case "3":
 			student = new StudentResponse(13L, "Olgierd", "Nowak");
 			taskResponse.setId(3L);
 			taskResponse.setTitle("Trzecia praca inżynierska");
 			taskResponse.setStatus(TaskStatus.WAITING_FOR_STUDENT_REC_CONFIRM);
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(1L, "Adam", "Kowalski", 3));
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(3L, "Cezary", "Kowalski", 5));
+			taskResponse.getProposedReviewerList().add(new ReviewerListResponse(6L, "Franciszek", "Kowalski", 1));
 			break;
 		case "4":
 			student = new StudentResponse(14L, "Paweł", "Nowak");
 			taskResponse.setId(4L);
 			taskResponse.setTitle("Czwarta praca inżynierska");
 			taskResponse.setStatus(TaskStatus.REC_CONFIRMED);
+			taskResponse.getReviewerList().add(new ReviewerListResponse(4L, "Damian", "Kowalski", 7));
+			taskResponse.getReviewerList().add(new ReviewerListResponse(5L, "Emil", "Kowalski", 2));
+			taskResponse.getReviewerList().add(new ReviewerListResponse(2L, "Bartosz", "Kowalski", 6));
 			break;
 		}
 		taskResponse.setStudent(student);
