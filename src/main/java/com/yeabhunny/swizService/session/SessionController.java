@@ -1,14 +1,14 @@
 package com.yeabhunny.swizService.session;
 
-import com.yeabhunny.swizService.session.dto.request.LoginRequest;
-import com.yeabhunny.swizService.session.dto.response.LoginResponse;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.yeabhunny.swizService.session.dto.request.LoginRequest;
+import com.yeabhunny.swizService.session.dto.response.LoginResponse;
 
 @Controller
 @RequestMapping("/session")
@@ -19,21 +19,34 @@ public class SessionController {
     public LoginResponse login(@RequestParam LoginRequest loginRequest){
         LoginResponse response = new LoginResponse();
 
-
+        // TODO - obsłuż sobie też to
+        if (!loginRequest.getPassword().equals("test"))
+        	throw new RuntimeException();
+        
         switch (loginRequest.getLogin()){
             case "promotor":
                 response.setRole(AppRole.PROMOTOR);
+                response.setUserId(1L);
                 break;
-            case "task":
+            case "student1":
+            	response.setUserId(11L);
                 response.setRole(AppRole.STUDENT);
                 break;
-            case "reviewer":
-                response.setRole(AppRole.REVIEWER);
+            case "student2":
+            	response.setUserId(12L);
+                response.setRole(AppRole.STUDENT);
+                break;
+            case "student3":
+            	response.setUserId(13L);
+                response.setRole(AppRole.STUDENT);
+                break;
+            case "student4":
+            	response.setUserId(14L);
+                response.setRole(AppRole.STUDENT);
                 break;
             default:
                 throw new RuntimeException();
         }
-        response.setToken(loginRequest.getLogin());
         return response;
     }
 
