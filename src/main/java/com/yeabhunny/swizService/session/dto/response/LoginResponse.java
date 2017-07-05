@@ -7,6 +7,11 @@ public class LoginResponse {
     private String token;
     private AppRole role;
 
+    public LoginResponse(String token, AppRole role) {
+        this.token =token;
+        this.role = role;
+    }
+
     public String getToken() {
         return token;
     }
