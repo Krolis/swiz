@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/session")
 public class SessionController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
