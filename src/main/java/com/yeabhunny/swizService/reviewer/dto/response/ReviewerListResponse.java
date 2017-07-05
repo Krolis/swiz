@@ -1,12 +1,28 @@
 package com.yeabhunny.swizService.reviewer.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ReviewerListResponse {
 
+    @JsonProperty("id")
     private long id;
+    @JsonProperty("imie")
     private String name;
-    private String surrname;
+    @JsonProperty("nazwisko")
+    private String surname;
+    @JsonProperty("ilPrac")
     private int actualTaskCount;
-    private boolean isAvailable;
+    @JsonProperty("isAviable")
+    private boolean available;
+
+
+    public ReviewerListResponse(long id, String name, String surname, int actualTaskCount, boolean isAvailable) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.actualTaskCount = actualTaskCount;
+        this.available = isAvailable;
+    }
 
     public long getId() {
         return id;
@@ -24,12 +40,12 @@ public class ReviewerListResponse {
         this.name = name;
     }
 
-    public String getSurrname() {
-        return surrname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSurrname(String surrname) {
-        this.surrname = surrname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public int getActualTaskCount() {
@@ -41,10 +57,10 @@ public class ReviewerListResponse {
     }
 
     public boolean isAvailable() {
-        return isAvailable;
+        return available;
     }
 
     public void setAvailable(boolean available) {
-        isAvailable = available;
+        this.available = available;
     }
 }
