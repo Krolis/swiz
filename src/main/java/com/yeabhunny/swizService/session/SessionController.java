@@ -8,12 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/session")
 public class SessionController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
     public LoginResponse login(@RequestParam LoginRequest loginRequest){
         LoginResponse response = new LoginResponse();
 
@@ -36,6 +38,7 @@ public class SessionController {
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @ResponseBody
     public ResponseEntity<String> logout(){
         return ResponseEntity.ok("");
     }
