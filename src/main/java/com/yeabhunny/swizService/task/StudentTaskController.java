@@ -14,7 +14,7 @@ public class StudentTaskController {
 
     @RequestMapping(value = "/{studentId}/task", method = RequestMethod.GET)
     @ResponseBody
-    public StudentTaskResponse getStudentTask(@PathVariable("studentId") String studentId){
+    public StudentTaskResponse getStudentTask(@PathVariable("studentId") Long studentId){
         StudentTaskResponse studentTaskResponse = new StudentTaskResponse();
         PrometerResponse promotor = new PrometerResponse();
         promotor.setName("Jan");

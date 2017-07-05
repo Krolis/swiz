@@ -17,7 +17,7 @@ public class PrometerTaskController {
 
     @RequestMapping(value = "/{prometerId}/tasks", method = RequestMethod.GET)
     @ResponseBody
-    public List<StudentTaskResponse> getAllPrometerTasks(@PathVariable("prometerId") String prometerId){
+    public List<StudentTaskResponse> getAllPrometerTasks(@PathVariable("prometerId") Long prometerId){
         StudentTaskResponse studentTaskResponse1 = new StudentTaskResponse();
         studentTaskResponse1.setId(1L);
         studentTaskResponse1.setTitle("Pierwsza praca inżynierska");
