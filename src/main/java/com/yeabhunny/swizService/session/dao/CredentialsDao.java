@@ -27,7 +27,7 @@ public class CredentialsDao {
     }
 
     public Credentials getByLogin(String login) {
-        return db.stream().filter(item->item.getLogin().equals(login)).findAny().get();
+        return db.stream().filter(item->item.getLogin().equals(login)).findAny().orElse(null);
     }
 
 }
