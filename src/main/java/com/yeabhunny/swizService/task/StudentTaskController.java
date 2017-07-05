@@ -1,5 +1,10 @@
 package com.yeabhunny.swizService.task;
 
+import com.yeabhunny.swizService.reviewer.ReviewerController;
+import com.yeabhunny.swizService.task.repository.PrometerRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +19,17 @@ import com.yeabhunny.swizService.task.dto.response.TaskResponse;
 @RequestMapping("/student")
 public class StudentTaskController {
 
+	private static final Logger LOG = LoggerFactory.getLogger(StudentTaskController.class);
+
+	@Autowired
+	private PrometerRepository prometerRepository;
+
     @RequestMapping(value = "/{studentId}/task", method = RequestMethod.GET)
     @ResponseBody
     public TaskResponse getStudentTask(@PathVariable("studentId") Long studentId){
+
+    	LOG.info("getStudentTask() id " + studentId);
+
         TaskResponse taskResponse = new TaskResponse();
         switch (studentId.toString()) {
 		case "11":
@@ -50,15 +63,8 @@ public class StudentTaskController {
 			taskResponse.getReviewerList().add(new ReviewerListResponse(2L, "Bartosz", "Kowalski", 6));
 			break;
 		}
-        taskResponse.setPrometer(getDefaultPromotor());
+        taskResponse.setPrometer(prometerRepository.getDefaultPrometer());
         return taskResponse;
     }
-    
-    private PrometerResponse getDefaultPromotor() {
-    	PrometerResponse promotor = new PrometerResponse();
-        promotor.setName("Jan");
-        promotor.setSurname("Kowalski");
-        promotor.setId(1L);
-        return promotor;
-    }
+
 }

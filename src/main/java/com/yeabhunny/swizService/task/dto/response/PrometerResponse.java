@@ -10,6 +10,12 @@ public class PrometerResponse {
     @JsonProperty("id")
     private long id;
 
+    public PrometerResponse(long id, String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

@@ -28,6 +28,15 @@ public class TaskResponse {
     	this.proposedReviewerList = new ArrayList<>();
     }
 
+    public TaskResponse(long id, String title, TaskStatus status, PrometerResponse prometer, StudentResponse student) {
+        this();
+        this.id = id;
+        this.title = title;
+        this.status = status;
+        this.prometer = prometer;
+        this.student = student;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
