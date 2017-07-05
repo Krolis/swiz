@@ -1,8 +1,13 @@
-package com.yeabhunny.swizService.student.dto.response;
+package com.yeabhunny.swizService.task.dto.response;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PrometerResponse {
+    @JsonProperty("imie")
     private String name;
+    @JsonProperty("nazwisko")
     private String surname;
+    @JsonProperty("id")
     private long id;
 
     public void setName(String name) {

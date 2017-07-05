@@ -12,16 +12,12 @@ public class ReviewerListResponse {
     private String surname;
     @JsonProperty("ilPrac")
     private int actualTaskCount;
-    @JsonProperty("isAviable")
-    private boolean available;
 
-
-    public ReviewerListResponse(long id, String name, String surname, int actualTaskCount, boolean isAvailable) {
+    public ReviewerListResponse(long id, String name, String surname, int actualTaskCount) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.actualTaskCount = actualTaskCount;
-        this.available = isAvailable;
     }
 
     public long getId() {
@@ -56,11 +52,4 @@ public class ReviewerListResponse {
         this.actualTaskCount = actualTaskCount;
     }
 
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
 }

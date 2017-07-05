@@ -1,4 +1,4 @@
-package com.yeabhunny.swizService.student;
+package com.yeabhunny.swizService.task;
 
 public enum TaskStatus {
     WAITING_FOR_REC_CHOOSE, WAITING_FOR_PROMOTOR_REC_CONFIRM, REC_CONFIRMED, WAITING_FOR_STUDENT_REC_CONFIRM

@@ -24,7 +24,7 @@ public class SessionController {
             case "promotor":
                 response.setRole(AppRole.PROMOTOR);
                 break;
-            case "student":
+            case "task":
                 response.setRole(AppRole.STUDENT);
                 break;
             case "reviewer":

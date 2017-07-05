@@ -1,11 +1,16 @@
-package com.yeabhunny.swizService.student.dto.response;
+package com.yeabhunny.swizService.task.dto.response;
 
-import com.yeabhunny.swizService.student.TaskStatus;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.yeabhunny.swizService.task.TaskStatus;
 
 public class StudentTaskResponse {
+    @JsonProperty("idPracy")
     private long id;
+    @JsonProperty("tytulPracy")
     private String title;
+    @JsonProperty("status")
     private TaskStatus status;
+    @JsonProperty("promotor")
     private PrometerResponse prometer;
 
     public void setId(long id) {
